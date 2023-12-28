@@ -1,6 +1,3 @@
-# Strategy pattern in Python using functional programming for the payment example
-
-
 # A generic function that takes a function and an amount as arguments
 # and calls the function with the amount
 def pay(func, amount):
