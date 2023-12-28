@@ -30,6 +30,13 @@ class Cash(Payment):
 
 
 # FACTORIES: dict[str, Payment] = {
+#     "CreditCard": lambda: CreditCard(),
+#     "DebitCard": lambda: DebitCard(),
+#     "PayPal": lambda: PayPal(),
+#     "Cash": lambda: Cash(),
+# }
+
+# FACTORIES_2: dict[str, Payment] = {
 #     "CreditCard": CreditCard,
 #     "DebitCard": DebitCard,
 #     "PayPal": PayPal,
@@ -40,7 +47,8 @@ class Cash(Payment):
 # Factory class
 class PaymentFactory:
     def create_payment(self, type: str):
-        # return FACTORIES.get(type)()
+        # return FACTORIES[type]()
+        # return FACTORIES_2[type]()
         if type == "CreditCard":
             return CreditCard()
         elif type == "DebitCard":
