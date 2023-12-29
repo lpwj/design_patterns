@@ -10,37 +10,52 @@ class Payment(ABC):
 
 # Concrete strategies
 class CreditCard(Payment):
-    def pay(self, amount) -> None:
+    def pay(self, amount: float) -> None:
         print(f"Pay {amount} with credit card")
 
 
 class DebitCard(Payment):
-    def pay(self, amount) -> None:
+    def pay(self, amount: float) -> None:
         print(f"Pay {amount} with debit card")
 
 
 class PayPal(Payment):
-    def pay(self, amount) -> None:
+    def pay(self, amount: float) -> None:
         print(f"Pay {amount} with PayPal")
 
 
 class Cash(Payment):
-    def pay(self, amount) -> None:
+    def pay(self, amount: float) -> None:
         print(f"Pay {amount} with cash")
 
 
 # Context class
 class PaymentContext:
-    payment: Payment
+    payment_strategy: Payment
 
-    def __init__(self, payment: Payment) -> None:
-        self.payment = payment
+    def __init__(self, payment_strategy: Payment) -> None:
+        """Sets the initial payment strategy to use.
 
-    def set_payment(self, payment: Payment) -> None:
-        self.payment = payment
+        Args:
+            payment_strategy (Payment): The payment strategy.
+        """
+        self.payment_strategy = payment_strategy
+
+    def set_payment(self, payment_strategy: Payment) -> None:
+        """Changes the object behavior in run time, and applies a new strategy.
+
+        Args:
+            payment_strategy (Payment): The new payment strategy.
+        """
+        self.payment_strategy = payment_strategy
 
     def pay(self, amount: float) -> None:
-        self.payment.pay(amount)
+        """Performs the actual payment according to the strategy in usage.
+
+        Args:
+            amount (float): The amount to pay.
+        """
+        self.payment_strategy.pay(amount)
 
 
 # Example usage

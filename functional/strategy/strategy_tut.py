@@ -1,23 +1,30 @@
-# A generic function that takes a function and an amount as arguments
-# and calls the function with the amount
-def pay(func, amount):
+from typing import Callable
+
+
+def pay(func: Callable[[float], None], amount: float):
+    """Executes the action of paying according to the strategy function received.
+
+    Args:
+        func (Callable[[float], None]): Function to execute.
+        amount (float): The amount to pay.
+    """
     func(amount)
 
 
 # Some concrete functions that represent different payment methods
-def credit_card(amount):
+def credit_card(amount: float):
     print(f"Pay {amount} with credit card")
 
 
-def debit_card(amount):
+def debit_card(amount: float):
     print(f"Pay {amount} with debit card")
 
 
-def pay_pal(amount):
+def pay_pal(amount: float):
     print(f"Pay {amount} with PayPal")
 
 
-def cash(amount):
+def cash(amount: float):
     print(f"Pay {amount} with cash")
 
 
