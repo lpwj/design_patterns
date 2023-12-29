@@ -11,22 +11,22 @@ class Payment(ABC):
 # Concrete strategies
 class CreditCard(Payment):
     def pay(self, amount: float) -> None:
-        print(f"Pay {amount} with credit card")
+        print(f"Pay {amount} with credit card (Strategy Pattern)")
 
 
 class DebitCard(Payment):
     def pay(self, amount: float) -> None:
-        print(f"Pay {amount} with debit card")
+        print(f"Pay {amount} with debit card (Strategy Pattern)")
 
 
 class PayPal(Payment):
     def pay(self, amount: float) -> None:
-        print(f"Pay {amount} with PayPal")
+        print(f"Pay {amount} with PayPal (Strategy Pattern)")
 
 
 class Cash(Payment):
     def pay(self, amount: float) -> None:
-        print(f"Pay {amount} with cash")
+        print(f"Pay {amount} with cash (Strategy Pattern)")
 
 
 # Context class

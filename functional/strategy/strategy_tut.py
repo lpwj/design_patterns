@@ -13,19 +13,19 @@ def pay(func: Callable[[float], None], amount: float):
 
 # Some concrete functions that represent different payment methods
 def credit_card(amount: float):
-    print(f"Pay {amount} with credit card")
+    print(f"Pay {amount} with credit card (Strategy Functional)")
 
 
 def debit_card(amount: float):
-    print(f"Pay {amount} with debit card")
+    print(f"Pay {amount} with debit card (Strategy Functional)")
 
 
 def pay_pal(amount: float):
-    print(f"Pay {amount} with PayPal")
+    print(f"Pay {amount} with PayPal (Strategy Functional)")
 
 
 def cash(amount: float):
-    print(f"Pay {amount} with cash")
+    print(f"Pay {amount} with cash (Strategy Functional)")
 
 
 # Example usage
