@@ -1,3 +1,4 @@
+"""Module with the strategy pattern. (Functional programming)"""
 from typing import Callable
 
 
@@ -13,18 +14,38 @@ def pay(func: Callable[[float], None], amount: float):
 
 # Some concrete functions that represent different payment methods
 def credit_card(amount: float):
+    """Represents the credit card payment method.
+
+    Args:
+        amount (float): The amount to pay.
+    """
     print(f"Pay {amount} with credit card (Strategy Functional)")
 
 
 def debit_card(amount: float):
+    """Represents the debit card payment method.
+
+    Args:
+        amount (float): The amount to pay.
+    """
     print(f"Pay {amount} with debit card (Strategy Functional)")
 
 
 def paypal(amount: float):
+    """Represents the paypal card payment method.
+
+    Args:
+        amount (float): The amount to pay.
+    """
     print(f"Pay {amount} with PayPal (Strategy Functional)")
 
 
 def cash(amount: float):
+    """Represents the cash payment method.
+
+    Args:
+        amount (float): The amount to pay.
+    """
     print(f"Pay {amount} with cash (Strategy Functional)")
 
 

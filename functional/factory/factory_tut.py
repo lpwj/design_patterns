@@ -1,3 +1,5 @@
+"""Module with the factory pattern. (Functional programming)"""
+
 from typing import Dict, Callable
 
 # dictionary we do not have access to change. It creates the type of factories. Creator Dictionary
@@ -13,7 +15,7 @@ payment_methods: Dict[str, Callable[[float], None]] = {
 }
 
 
-def factoryContext(type: str):
+def factory_context(payment_type: str):
     """Creates the given type of factory.
 
     Args:
@@ -24,18 +26,24 @@ def factoryContext(type: str):
         Callable[[float], None]: The Factory callable function object to execute.
     """
     # Creating the factory
-    return payment_methods[type]
+    return payment_methods[payment_type]
 
 
 def pay(factory: Callable[[float], None], amount: float) -> None:
+    """Executes the action of paying according to the factory function received.
+
+    Args:
+        factory (Callable[[float], None]): The factory to to use.
+        amount (float): The amount to pay with the factory outcome.
+    """
     factory(amount)
 
 
 # Example usage
-context_credit_card = factoryContext("CreditCard")
-context_debit_card = factoryContext("DebitCard")
-context_paypal = factoryContext("PayPal")
-context_cash = factoryContext("Cash")
+context_credit_card = factory_context("CreditCard")
+context_debit_card = factory_context("DebitCard")
+context_paypal = factory_context("PayPal")
+context_cash = factory_context("Cash")
 
 
 pay(context_credit_card, 100)  # Pay 100 with credit card

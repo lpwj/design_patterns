@@ -1,36 +1,73 @@
+"""Module with the strategy pattern."""
 from abc import ABC, abstractmethod
 
 
 # Strategy interface
 class Payment(ABC):
+    """Payments Abstract Class
+
+    Args:
+        ABC (ABC): Python Base ABC class
+    """
+
     @abstractmethod
     def pay(self, amount: float) -> None:
-        pass
+        """Pay method to be implemented on each class that inherits from this class
+
+        Args:
+            amount (float): The amount to pay.
+        """
 
 
 # Concrete strategies
 class CreditCard(Payment):
+    """The CreditCard type of payment blueprint definition.
+
+    Args:
+        Payment (ABC): The payment Abstract class.
+    """
+
     def pay(self, amount: float) -> None:
         print(f"Pay {amount} with credit card (Strategy Pattern)")
 
 
 class DebitCard(Payment):
+    """The DebitCard type of payment blueprint definition.
+
+    Args:
+        Payment (ABC): The payment Abstract class.
+    """
+
     def pay(self, amount: float) -> None:
         print(f"Pay {amount} with debit card (Strategy Pattern)")
 
 
 class PayPal(Payment):
+    """The PayPal type of payment blueprint definition.
+
+    Args:
+        Payment (ABC): The payment Abstract class.
+    """
+
     def pay(self, amount: float) -> None:
         print(f"Pay {amount} with PayPal (Strategy Pattern)")
 
 
 class Cash(Payment):
+    """The Cash type of payment blueprint definition.
+
+    Args:
+        Payment (ABC): The payment Abstract class.
+    """
+
     def pay(self, amount: float) -> None:
         print(f"Pay {amount} with cash (Strategy Pattern)")
 
 
 # Context class
 class PaymentContext:
+    """The context class to init or set a new strategy and perform a payment."""
+
     payment_strategy: Payment
 
     def __init__(self, payment_strategy: Payment) -> None:
